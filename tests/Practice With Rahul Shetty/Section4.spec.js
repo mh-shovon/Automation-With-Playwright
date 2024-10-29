@@ -7,7 +7,7 @@ test('Page playwright test', async ({page})=>
     await expect(page).toHaveTitle("Google");
 });
 
-test.skip('Browser context playwright test', async ({browser})=>
+test('Browser context playwright test', async ({browser})=>
 {
     //Open browser and a new tab
     const openBrowser = await browser.newContext();
@@ -45,7 +45,7 @@ test.skip('Browser context playwright test', async ({browser})=>
     console.log(allElementTitles);
 });
 
-test.skip('Visit the login url', async({page})=>{
+test('Visit the login url', async({page})=>{
     await page.goto("https://rahulshettyacademy.com/client");
     console.log(await page.title());
     await expect(page).toHaveTitle("Let's Shop");

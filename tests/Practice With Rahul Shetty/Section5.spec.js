@@ -143,23 +143,27 @@ test('Handling dropdowns and radio button',async({page})=>{
     expect (await termsAndCondition.isChecked()).toBeFalsy();
 
     const documentLink = page.locator("[href *= 'documents-request']");
-    await expect(documentLink).toHaAttribute("class", "blinkingText");
+    await expect(documentLink).toHaveAttribute("class", "blinkingText");
 
     const signInBtn = page.locator("#signInBtn");
     await signInBtn.click();
 });
 
-test.only('@Child window handle', async({browser})=>
+test('@Child window handle', async({browser})=>
 {   
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
     const documentLink = page.locator("[href *= 'documents-request']");
-    const [newPage] = Promise.all([
+    const [newPage] = await Promise.all([
         context.waitForEvent('page'), //listen for any new page pending, rejected, fulfilled
         documentLink.click(),
     ]) //new page is opened
-    const text = newPage.locator(".red");
-    console.log(await text.textContent());
-    
+    const text = await newPage.locator(".red").textContent();
+    const arrayText = text.split("@");
+    const domainName  = arrayText[1].split(" ")[0];
+    console.log(domainName);
+
+    await page.locator("#username").fill(domainName);
+    console.log(await page.locator("#username").textContent());
 });
