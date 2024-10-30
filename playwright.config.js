@@ -11,8 +11,8 @@ const { defineConfig, devices, chromium } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-  //testDir: './tests/Practice With Rahul Shetty',
-  testDir: './tests/Office Project',
+  testDir: './tests/Practice With Rahul Shetty',
+  //testDir: './tests/Office Project',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -32,7 +32,7 @@ module.exports = defineConfig({
     //browserName: 'chromium',
     //headless: false,
     screenshot: 'on',
-    trace: 'on',
+    trace: 'retain-on-failure', //Options: [on,off,retain-on-failure]
   },
 
   timeout: 30 * 1000,

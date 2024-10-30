@@ -3,7 +3,7 @@ const {test, expect} = require('@playwright/test');
 test('Browser open and visiting the url successfully', async ({browser})=>{
     const openBrowser = await browser.newContext();
     const newTab = await openBrowser.newPage();
-    await newTab.goto("https://dev.admin.intercity.jatri.co/login");
+    await newTab.goto("https://dev.user.jatri.co/login");
     const loginPage = newTab;
     const pageTitle = await loginPage.title();
     console.log(pageTitle);
@@ -11,7 +11,7 @@ test('Browser open and visiting the url successfully', async ({browser})=>{
 });
 
 test('Login with empty credentials', async ({page})=>{
-    await page.goto("https://dev.admin.intercity.jatri.co/login");
+    await page.goto("https://dev.user.jatri.co/login");
 
     //Locators
     const userPhoneNumber = page.locator("input[placeholder='01XXXXXXXXX']");
@@ -37,7 +37,7 @@ test('Login with empty credentials', async ({page})=>{
 });
 
 test('Login with only phone number', async ({page})=>{
-    await page.goto("https://dev.admin.intercity.jatri.co/login");
+    await page.goto("https://dev.user.jatri.co/login");
 
     //Locators
     const userPhoneNumber = page.locator("input[placeholder='01XXXXXXXXX']");
@@ -60,7 +60,7 @@ test('Login with only phone number', async ({page})=>{
 });
 
 test('Login with password only', async ({page})=>{
-    await page.goto("https://dev.admin.intercity.jatri.co/login");
+    await page.goto("https://dev.user.jatri.co/login");
 
     //Locators
     const userPhoneNumber = page.locator("input[placeholder='01XXXXXXXXX']");
@@ -83,7 +83,7 @@ test('Login with password only', async ({page})=>{
 });
 
 test('Login with valid credentials', async ({page})=>{
-    await page.goto("https://dev.admin.intercity.jatri.co/login");
+    await page.goto("https://dev.user.jatri.co/login");
 
     //Locators
     const userPhoneNumber = page.locator("input[placeholder='01XXXXXXXXX']");

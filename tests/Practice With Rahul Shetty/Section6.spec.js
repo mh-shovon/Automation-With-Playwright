@@ -40,4 +40,5 @@ test('User Login', async ({page})=>
 
 
 //Test race, screenshot, html report logs
+    // Use retain-on-failure in the trace in config.js file
    

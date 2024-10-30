@@ -113,7 +113,6 @@ test('User login', async({page})=>{
     await allItemList.first().waitFor();
     const allItemTitles = await allItemList.allTextContents();
     console.log(allItemTitles);
-
 });
 
 test('Handling dropdowns and radio button',async({page})=>{
