@@ -27,7 +27,7 @@ test('Browser context playwright test', async ({browser})=>
     await userPassword.fill("123456");
     await signInBtn.click();
     console.log(await loginPage.locator("[style*='block']").textContent());
-    await expect(loginPage.locator("[style*='block']")).toContainText("Incorrect username/password.");
+    await expect(loginPage.locator("[style*='block']")).toContainText("Incorrect username/password."); //Incorrect username/password.
 
     //Login with valid credentials
     await userName.fill("");
@@ -45,7 +45,7 @@ test('Browser context playwright test', async ({browser})=>
     console.log(allElementTitles);
 });
 
-test('Visit the login url', async({page})=>{
+test('Visit the website url', async({page})=>{
     await page.goto("https://rahulshettyacademy.com/client");
     console.log(await page.title());
     await expect(page).toHaveTitle("Let's Shop");
