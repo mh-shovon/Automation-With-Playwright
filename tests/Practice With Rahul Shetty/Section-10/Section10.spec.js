@@ -25,7 +25,7 @@ test.beforeAll( 'API Testing-Generate user token for login',async ()=> { //runs 
     const orderResponseJson = await orderResponse.json();
     console.log(orderResponseJson);
     orderId = orderResponseJson.orders[0];
-    console.log(orderId);
+    console.log('The new order id is: ', orderId);
 });
 
 test.beforeEach( async ()=> { //runs before every single test case
@@ -45,15 +45,15 @@ test('Test-1(API Testing- Place Order)', async ({ page })=>{
 
     await page.locator("tbody").waitFor();
     const rows = page.locator("tbody tr");
-    let k = 0;
+    let i = 0;
     while(i < await rows.count()){
-        const orderIdInRow = await rows.nth(k).locator("th").textContent();
+        const orderIdInRow = await rows.nth(i).locator("th").textContent();
         if(orderId.includes(orderIdInRow)){
             console.log("Order id is found in the order list.")
-            await rows.nth(k).locator("button").first().click();
+            await rows.nth(i).locator("button").first().click();
             break;
         }
-        k++;
+        i++;
     }
 
     const orderIdInDetailsPage = await page.locator(".col-text").textContent();
