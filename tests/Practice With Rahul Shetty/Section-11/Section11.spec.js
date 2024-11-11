@@ -1,11 +1,12 @@
 const {test, expect, request} = require('@playwright/test');
-
-test.beforeAll(async ({browser})=>{
-    const openBrowser = await browser.newContext();
-    const newTab = openBrowser.newPage();
-    await newTab.goto("https://rahulshettyacademy.com/client");
-    console.log(await newTab.title());
-    await expect(newTab).toHaveTitle("Let's Shop");
+test.describe.configure({mode: 'serial'});
+let webContext;
+test.beforeAll('Test-1 :: User login', async ({browser})=>{
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.goto("https://rahulshettyacademy.com/client");
+    console.log(await page.title());
+    await expect(page).toHaveTitle("Let's Shop");
 
     const enteredEmail = "mhshovon1@gmail.com";
     const userEmail = page.locator("#userEmail");
@@ -17,35 +18,31 @@ test.beforeAll(async ({browser})=>{
     const loginBtn = page.locator("#login");
     await loginBtn.click();
 
+    await page.waitForLoadState('networkidle');
+    await context.storageState({path: 'state.json'});
+
+    webContext = await browser.newContext({storageState: 'state.json'});
+});
+
+test('Test-2 :: Print the visible item in the page', async ()=>{
+    const page = await webContext.newPage();
+
+    await page.goto("https://rahulshettyacademy.com/client");
+    await page.waitForLoadState('networkidle');
     const allItemList = page.locator(".card-body b");
     await page.waitForLoadState('networkidle');
     const allItemTitles = await allItemList.allTextContents();
     console.log(allItemTitles);
-})
-test('User login and complete an order', async({ page })=>{
-    //User Login------------------->
-        await page.context().clearCookies();
-        await page.context().clearPermissions();
+
+    const allProducts = page.locator(".card-body");
+    const productsCount = await allProducts.count();
+    console.log("Total item in this page: ", productsCount);       
+});
+test('Test-3 :: Create and complete the order', async()=>{
+        const page = await webContext.newPage();
+
         await page.goto("https://rahulshettyacademy.com/client");
-        console.log(await page.title());
-        await expect(page).toHaveTitle("Let's Shop");
-    
         const enteredEmail = "mhshovon1@gmail.com";
-        const userEmail = page.locator("#userEmail");
-        await userEmail.fill(enteredEmail);
-    
-        const  userPassword = page.locator("#userPassword");
-        await userPassword.fill("Mhshovon1");
-    
-        const loginBtn = page.locator("#login");
-        await loginBtn.click();
-    
-        const allItemList = page.locator(".card-body b");
-        await page.waitForLoadState('networkidle');
-        const allItemTitles = await allItemList.allTextContents();
-        console.log(allItemTitles);
-    
-    //Ordering products------------------->
         const allProducts = page.locator(".card-body");
         const productsCount = await allProducts.count();
         console.log("Total item in this page: ", productsCount);
@@ -59,10 +56,10 @@ test('User login and complete an order', async({ page })=>{
             }
             i++;
         }
+        await page.waitForLoadState('networkidle');
         const cartBtn = page.locator("[routerlink*='cart']");
+        await page.waitForLoadState('networkidle');
         await cartBtn.click();
-        //await page.locator("div li").first().waitFor();
-        //await page.waitForLoadState('networkidle');
         await page.waitForSelector("h3:has-text('ADIDAS ORIGINAL')");
         const desireItem = await page.locator("h3:has-text('ADIDAS ORIGINAL')").isVisible();
         expect(desireItem).toBeTruthy();
@@ -134,8 +131,6 @@ test('User login and complete an order', async({ page })=>{
             }
             k++;
         }
-        // const orderIdInDetailsPage = await page.locator(".col-text").textContent();
-        // console.log(expect(orderId.includes(orderIdInDetailsPage)).toBeTruthy());
         const orderIdInDetailsPage = await page.locator(".col-text").textContent();
         if(orderIdInDetailsPage){
             expect(orderId.includes(orderIdInDetailsPage)).toBeTruthy();

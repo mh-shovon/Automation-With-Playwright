@@ -1,5 +1,5 @@
 // @ts-check
-const { defineConfig, devices, chromium } = require('@playwright/test');
+const { defineConfig, devices, chromium } = require("@playwright/test");
 
 /**
  * Read environment variables from file.
@@ -11,7 +11,7 @@ const { defineConfig, devices, chromium } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-  testDir: './tests/Practice With Rahul Shetty',
+  testDir: "./tests/Practice With Rahul Shetty",
   //testDir: './tests/Office Project',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -22,7 +22,7 @@ module.exports = defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -31,20 +31,20 @@ module.exports = defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     //browserName: 'chromium',
     headless: true,
-    screenshot: 'on',
-    trace: 'retain-on-failure', //Options: [on,off,retain-on-failure]
+    screenshot: "on",
+    trace: "on", //Options: [on,off,retain-on-failure]
   },
 
   timeout: 30 * 1000,
   expect: {
-    timeout: 5000
+    timeout: 5000,
   },
-  
+
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
     },
 
     // {
@@ -85,4 +85,3 @@ module.exports = defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
-
