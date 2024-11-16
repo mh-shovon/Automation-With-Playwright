@@ -35,7 +35,7 @@ test('Test-3(Mouse Hover)', async ({ page })=>{
     await page.pause();
 });
 
-test.only('Test-4(Handling Frame)', async ({ page })=>{
+test('Test-4(Handling Frame)', async ({ page })=>{
     console.log("Learn Playwright with Rahul Shetty")
     await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
     const framesPage = page.frameLocator("#courses-iframe");
