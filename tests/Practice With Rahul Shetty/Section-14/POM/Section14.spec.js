@@ -25,10 +25,8 @@ test('User login and complete an order', async({ page })=>{
     const creditCardNumber = "9999888877776666"
     const cvvCode = "789";
     const nameOnCard = "ABCDEF GHIJKL";
-    const applyCoupon = "rahulshettyacademy";
+    const couponCode = "rahulshettyacademy";
 
-    const 
-    await applyCouponBtn.click();
     const couponAppliedOrNotChecking = page.locator('[style="color: green;"]');
     const textContent = await couponAppliedOrNotChecking.textContent();
     console.log(textContent);

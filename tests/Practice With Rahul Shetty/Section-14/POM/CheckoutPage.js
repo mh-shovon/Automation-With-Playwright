@@ -18,7 +18,8 @@ class CheckoutPage{
         await this.creditCardNumber.fill("creditCardNumber");
         await this.cvvCode.fill(cvvCode);
         await this.nameOnCard.fill(nameOnCard);
-        await this.applyCoupon.fill()
+        await this.applyCoupon.fill(couponCode)
+        await this.applyCouponBtn.click();
     }
 }
 module.exports = {CheckoutPage};
