@@ -3,7 +3,6 @@ class DashboardPage{
         this.page = page;
         this.allProductsList = page.locator(".card-body");
         this.allProductsTitles = page.locator(".card-body b");
-        this.cartBtn = page.locator("[routerlink*='cart']");
     }
 
     async searchProductAndAddToCart(productName){
@@ -20,12 +19,6 @@ class DashboardPage{
             i++;
         }
     }
-
-    async navigateToCartPageAndValidateOrderItem(){
-        await this.cartBtn.click();
-        await this.page.waitForSelector("h3:has-text('ADIDAS ORIGINAL')");
-        
-    }
 }
 
-module.exports = {DashboardPage};
+module.exports = { DashboardPage };
