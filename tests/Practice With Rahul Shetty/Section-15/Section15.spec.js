@@ -1,4 +1,9 @@
 const {test, expect} = require('@playwright/test');
+
+// ******************************** Run the code using custom config file ***********************************
+
+                                    // Config file = playwright.configdemo-1.js //
+
 test('Browser context playwright test', async ({browser})=>
     {
         //Open browser and a new tab

@@ -1,0 +1,31 @@
+[
+    {
+        "userEmail" : "mhshovon1@gmail.com",
+        "userPassword" : "Mhshovon1",
+    
+        "productName" : "ADIDAS ORIGINAL",
+    
+        "creditCardNumber" : "9999888877776666",
+        "cvvCode" : "789",
+        "nameOnCard" : "FIRST CUSTOMER",
+    
+        "couponCode" : "rahulshettyacademy",
+        
+        "desireCountryName" : " Bangladesh"
+    },
+
+    {
+        "userEmail" : "anshika@gmail.com",
+        "userPassword" : "Iamking@000",
+    
+        "productName" : "ZARA COAT 3",
+    
+        "creditCardNumber" : "3333777711119999",
+        "cvvCode" : "153",
+        "nameOnCard" : "SECOND CUSTOMER",
+    
+        "couponCode" : "rahulshettyacademy",
+        
+        "desireCountryName" : " Bangladesh"
+    }
+]

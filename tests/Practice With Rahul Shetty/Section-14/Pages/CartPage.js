@@ -15,6 +15,7 @@ class CartPage {
     }
     async verifyProductIsDisplayed(productName) {
         await this.cartItems.waitFor();
+        await this.page.waitForLoadState('networkidle');
         const desireItem = await this.getProductLocator(productName).isVisible();
         expect(desireItem).toBeTruthy();
     }
