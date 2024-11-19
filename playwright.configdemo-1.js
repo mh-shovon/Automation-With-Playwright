@@ -3,14 +3,18 @@ const { devices } = require('@playwright/test');
 
 const config = {
   testDir: './tests',
-  /* Maximum time one test can run for. */
+
+  workers: 3, //How many test files run at a time.
+
+  retries: 1, //Retries for failed test cases.
 
   timeout: 30 * 1000,
   expect: {
     timeout: 5000
   },
 
-  reporter: 'html',
+  // reporter: 'html',
+  reporter: [["line"], ["allure-playwright"]],
   
   projects: [
     {

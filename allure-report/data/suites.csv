@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Nov 19 14:37:00 BDT 2024","Tue Nov 19 14:37:11 BDT 2024","10945","chrome","Practice With Rahul Shetty\Section-17\Section17.spec.js","","","","Test-3(Mouse Hover)",""
+"passed","Tue Nov 19 14:36:42 BDT 2024","Tue Nov 19 14:36:51 BDT 2024","8964","chrome","Practice With Rahul Shetty\Section-17\Section17.spec.js","","","","Test-1(Hidden field validation)",""
+"passed","Tue Nov 19 14:36:52 BDT 2024","Tue Nov 19 14:36:59 BDT 2024","7578","chrome","Practice With Rahul Shetty\Section-17\Section17.spec.js","","","","Test-2(Popup handling)",""
+"passed","Tue Nov 19 14:37:12 BDT 2024","Tue Nov 19 14:37:26 BDT 2024","13934","chrome","Practice With Rahul Shetty\Section-17\Section17.spec.js","","","","Test-4(Handling Frame)",""

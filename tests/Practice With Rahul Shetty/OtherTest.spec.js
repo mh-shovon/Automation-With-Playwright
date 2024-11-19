@@ -35,4 +35,4 @@ test('Browser context playwright test', async ({browser})=>
         console.log(await cardTitles.nth(1).textContent());
         const allElementTitles = await cardTitles.allTextContents(); 
         console.log(allElementTitles);
-    });
+});

@@ -33,7 +33,7 @@ test('Browser context playwright test', async ({browser})=>
         await userPassword.fill("learning");
         await signInBtn.click();
         console.log(await cardTitles.nth(0).textContent());
-        await expect(cardTitles.nth(0)).toContainText("iphone XX");
+        await expect(cardTitles.nth(0)).toContainText("iphone X");
     
         //Handling/Viewing multiple element of a list
         console.log(await cardTitles.first().textContent());
