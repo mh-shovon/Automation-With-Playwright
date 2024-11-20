@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/Practice With Rahul Shetty/Section11.spec.js --headed",
-    "regression": "npx playwright test",
-    "webTests": "npx playwright test --grep @Web",
-    "chromeNewConfig": "npx playwright test Section17.spec.js --config playwright.configdemo-1.js --project=chrome"
+    "regressionTest": "npx playwright test",
+    "webTest": "npx playwright test --grep @Web",
+    "apiTest": "npx playwright test --grep @API",
+    "chromeNewConfig": "npx playwright test Section17.spec.js --config playwright.configdemo-1.js --project=chrome",
+    "checkCiCd": "npx play"
   },
   "keywords": [],
   "author": "",

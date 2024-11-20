@@ -4,7 +4,7 @@ const loginPayload = {userEmail: "mhshovon1@gmail.com", userPassword: "Mhshovon1
 const orderPayload = {orders: [{country: "Bangladesh", productOrderedId: "6581ca979fd99c85e8ee7faf"}]};
 let loginToken;
 let orderId;
-test.beforeAll( 'API Testing-Generate user token for login',async ()=> { //runs before all test case
+test.beforeAll( '@API API Testing-Generate user token for login',async ()=> { //runs before all test case
     //Login Api
     const apiContext = await request.newContext();
     const loginResponse = await apiContext.post("https://rahulshettyacademy.com/api/ecom/auth/login", {
@@ -31,7 +31,7 @@ test.beforeAll( 'API Testing-Generate user token for login',async ()=> { //runs 
 test.beforeEach( async ()=> { //runs before every single test case
 
 });
-test('Test-1(API Testing- Place Order)', async ({ page })=>{
+test('@API Test-1(API Testing- Place Order)', async ({ page })=>{
     page.addInitScript(value => {
         window.localStorage.setItem('token', value);
     }, loginToken);
