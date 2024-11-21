@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { PomControllerPage } = require('../Section-14/Controller/PomControllerPage')
+const { PomControllerPage } = require('../Section-14/Controller/PomControllerPage');
 // JSON --> String --> JS
 const dataSet = JSON.parse(JSON.stringify(require('../Section-14/JSON Data/UserInfoForMultipleUser.json')));
 //User Email- mhshovon1@gmail.com Password- Mhshovon1
@@ -9,12 +9,12 @@ test.describe.configure({ mode: 'serial' }); //mode = [serial/parallel]
 for(const data of dataSet){
     test(`@CiCd Test-1 for :: ${data.productName}`, async({ page })=>{
         //POM Controller Page
-        const pomControllerPage = new PomControllerPage(page)
+        const pomControllerPage = new PomControllerPage(page);
     
         //Login Page ---------->
         const loginPage = pomControllerPage.getLoginPage();
         await loginPage.openLoginPage();
-        await loginPage.loginWithValidCredentials(data.userEmail, data.userPassword);
+        await loginPage.loginWithValidCredentials(userEmail, userPassword);
     
         //Dashboard Page ---------->
         const dashboardPage = pomControllerPage.getDashboardPage();

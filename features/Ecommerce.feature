@@ -5,4 +5,4 @@ Feature: Ecommerce validations
     When Add "ADIDAS ORIGINAL" to the cart
     Then verify "ADIDAS ORIGINAL" is displayed in the cart
     When Enter valid details and place the order
-    Then Verify the order is presented in the order history page
+    Then Verify the order is presented in the order history page 
