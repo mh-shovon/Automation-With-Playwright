@@ -57,7 +57,7 @@ class CheckoutPage{
     }
 
     async submitOrderAndGetOrderId(){
-        await this.placeOrderBtn.waitFor();
+        //await this.placeOrderBtn.waitFor();
         await this.placeOrderBtn.click();
         await expect(this.orderSuccessMessage).toHaveText(" Thankyou for the order. ");
         return await this.orderId.textContent();
