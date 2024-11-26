@@ -28,8 +28,8 @@ test('Test-3(Mouse Hover)', async ({ page })=>{
     await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
     const mouseHoverBtn = page.locator("#mousehover");
     await mouseHoverBtn.hover();
-    // const hoverItemTop = page.locator(".mouse-hover-content a");
-    // await hoverItemTop.first().click();
+    const hoverItemTop = page.locator(".mouse-hover-content a");
+    await hoverItemTop.first().click();
     const hoverItemReload = page.getByText("Reload");
     await hoverItemReload.last().click();
     await page.pause();
