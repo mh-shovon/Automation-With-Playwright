@@ -34,4 +34,4 @@ class PomControllerPage{
         return this.myOrdersPage;
     }
 }
-module.exports = {PomControllerPage};
+module.exports = { PomControllerPage };

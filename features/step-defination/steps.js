@@ -1,5 +1,6 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const { PomControllerPage } = require('../../tests/Practice With Rahul Shetty/Section-14/Controller/PomControllerPage');
+console.log(typeof PomControllerPage);
 const playwright = require('@playwright/test');
 const { expect } = require('@playwright/test');
 
